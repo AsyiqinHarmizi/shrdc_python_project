@@ -26,4 +26,8 @@ st.write("\n")
 im = Image.open('covid-header.png')
 st.image(im)
 
-st.sidebar.write("Main Page")
+st.sidebar.write("""Prepared by:
+- Aina
+- Asyiqin
+- Putri
+- Azizah """)
