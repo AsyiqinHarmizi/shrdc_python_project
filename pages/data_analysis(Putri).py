@@ -48,3 +48,5 @@ def run_data_analysis():
 
     st.write("DataFrame with Binned Age Groups:")
     st.dataframe(df)
+
+run_data_analysis()
