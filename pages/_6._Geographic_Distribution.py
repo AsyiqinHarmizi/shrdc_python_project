@@ -126,5 +126,5 @@ st.header('Total Patients Choropleth Map')
 st.plotly_chart(fig)
 
 # Display the country summary values
-st.header('Patient Summary by Country')
+st.header('Patient Summary by Country of Origin')
 st.dataframe(country_summary_filtered)
