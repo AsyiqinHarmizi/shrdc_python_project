@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from googletrans import Translator
+import zipfile
 
 # CSS to customize font sizes
 st.markdown(
@@ -24,14 +25,29 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Example DataFrame
-df = pd.read_csv("cleaned_dataset.csv")
+# Load DataFrame from ZIP file
+zip_file_path = "cleaned_dataset.zip"  # Ensure this path is correct
+
+try:
+    with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+        # List the contents of the ZIP file
+        st.write("Contents of the ZIP file:")
+        st.write(zip_ref.namelist())
+
+        # Extract a specific file (e.g., 'cleaned_dataset.csv') from the ZIP file
+        csv_file_name = 'cleaned_dataset.csv'  # Replace with the actual CSV file name inside the ZIP
+        with zip_ref.open(csv_file_name) as file:
+            # Read the CSV file into a DataFrame
+            df = pd.read_csv(file)
+except Exception as e:
+    st.error(f"Error reading the ZIP file: {e}")
+    st.stop()  # Stop execution if the ZIP file cannot be read
 
 st.header('Geographic Distribution')
 st.sidebar.write('Geographic Distribution')
 
 st.info("Description")
-st.write(""" This website presents an interactive geographic map showcasing the analysis of COVID-19 patient outcomes
+st.write("""This website presents an interactive geographic map showcasing the analysis of COVID-19 patient outcomes
           in Mexico for the year 2020. The map visually represents various metrics related to the pandemic,
           allowing users to explore how different regions were affected.
           """)
