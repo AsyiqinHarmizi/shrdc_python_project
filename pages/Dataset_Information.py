@@ -4,21 +4,11 @@ import pandas as pd
 # Example DataFrame
 df = pd.read_csv("dataset.csv")
 
-st.header('Dataset Description')
-st.sidebar.write('Dataset Description')
-
-st.info("Information")
+st.header('Dataset Information')
+st.sidebar.write('Dataset Information')
 st.write(""" 
         This dataset contains comprehensive information on COVID-19 patients in Mexico for the year 2020. It includes key variables related to patient demographics,
         clinical outcomes, and treatment details. The dataset aims to provide insights into the impact of the pandemic on various populations, highlighting trends and patterns in patient health.
-
-         Key Features:
-         - Demographics: Age, gender, and underlying health conditions of patients.
-         - Clinical Information: Symptoms, hospitalization status, intubation, and recovery outcomes.
-         - Temporal Data: Dates of diagnosis, hospitalization, and recovery or death.
-         - Geographic Distribution: Information on the regions affected by COVID-19 within Mexico.
-
-         This dataset serves as a valuable resource for researchers, healthcare professionals, and policymakers interested in understanding the effects of COVID-19 on patient populations in Mexico.
          """)
 
 st.write("\n")
