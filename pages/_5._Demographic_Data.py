@@ -5,7 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Creating multi-tab page
-tab1, tab2, tab3 = st.tabs(["Demographic Data", "Intubation Data", "Timeline Chart"])
+tab1, tab2, tab3 = st.tabs(["Demographic Data", "Deceased Patient for Each Disease", "Correlation"])
 
 # Tab 1: Demographic Data
 with tab1:
@@ -44,7 +44,7 @@ with tab1:
     else:
         st.write("Please select at least one nationality to display the charts.")
 
-# Tab 2: Intubation Data
+# Tab 2: Deceased Patient for Each Disease
 with tab2:
     df["SEX"] = df["SEX"].map({1:"FEMALE", 2:"MALE", 99:"UNKNOWN"})    
     df["HOSPITALIZED"] = df["HOSPITALIZED"].map({1:"NO", 2:"YES", 99:"UNKNOWN"})    
@@ -95,12 +95,7 @@ with tab2:
     # Display the plot in Streamlit
     st.plotly_chart(fig)
 
-    
-    
-    
-    
-
-# Tab 3: Timeline Chart
+# Tab 3: Correlation
 with tab3:
     st.header("Correlation between Diseases and ICU Admission")
     
