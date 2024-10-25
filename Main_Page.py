@@ -27,4 +27,3 @@ im = Image.open('covid-header.png')
 st.image(im)
 
 st.sidebar.write("Main Page")
-st.caption("## Page Modified on: " + datetime.now().strftime("%Y-%m-%d"))
